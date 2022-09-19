@@ -6,21 +6,21 @@
 
 enum key_layers {
     _BASE,
-    _COLEMAK,
+    _RSTHD,
     _RAISE,
     _LOWER
 };
 
 enum layer_keycodes {
     QWERTY = SAFE_RANGE,
-    COLEMAK,
+    RSTHD,
 };
 
 #define RAISE  TT(_RAISE)
 #define LOWER  MO(_LOWER)
 #define SH_ESC SFT_T(KC_ESC)
 #define UNDSC  RSFT(KC_MINS)
-#define MAC_LOCK C(G(KC_D))
+#define MAC_LOCK C(G(KC_Q))
 #define ____   KC_TRANSPARENT
 
 #undef TAPPING_TOGGLE
@@ -35,14 +35,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    SH_ESC, KC_LGUI, KC_TAB,    KC_RSFT, KC_SPC,  KC_ENT,
                                    RAISE,  KC_LCTL,                     KC_BSPC, LOWER
     ),
-
-    [_COLEMAK] = LAYOUT(
-        KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,                  KC_J, KC_L, KC_U,    KC_Y,   KC_SCLN,
-        KC_A,    KC_R,    KC_S,    KC_T,    KC_D,                  KC_H, KC_N, KC_E,    KC_I,   KC_O,
-        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                  KC_K, KC_M, KC_COMM, KC_DOT, KC_SLSH,
-                 KC_LCBR, KC_RCBR,                                             KC_QUOT, KC_GRV,
-                                   ____,    ____,  ____,     ____, ____, ____,
-                                   ____,    ____,                  ____, ____
+   
+    /* Colemak
+     * ,----------------------------------,                  ,----------------------------------,
+     * |   q  |   w  |   f  |   p  |   g  |                  |   j  |   l  |   u  |   y  |   ;  |
+     * |------+------+------+------+------|                  |------+------+------+------+------|
+     * |   a  |   r  |   s  |   t  |   d  |                  |   h  |   n  |   e  |   i  |   o  |
+     * |------+------+------+------+------|                  |------+------+------+------+------|
+     * |   z  |   x  |   c  |   v  |   b  |                  |   k  |   m  |   ,  |   .  |   /  |
+     * '------+------+------+-------------'                  '------+------+------+------+------'
+     *        |  [   |   ]  |                                              |   '  |  `~  |
+     *        '-------------+------,                                ,------|-------------'
+     *                      | ESC  |                                | BSPC |
+     *                      |-------------,                  ,------+------|
+     *                      | GUI  |  TAB |                  | SHIFT| SPACE|
+     *                      |------+------|                  |------+------|
+     *                      | RAISE| CTRL |                  | LOWER| ENTER|
+     *                      '-------------'                  '-------------'
+     */
+    [_RSTHD] = LAYOUT(
+        KC_J,    KC_C,    KC_Y,    KC_F,    KC_K,             KC_Z,    KC_L,    KC_COMM, KC_U,    KC_Q,
+        KC_R,    KC_S,    KC_T,    KC_H,    KC_D,             KC_M,    KC_N,    KC_A,    KC_I,    KC_O,
+        KC_SLSH, KC_V,    KC_G,    KC_P,    KC_B,             KC_X,    KC_W,    KC_DOT,  KC_SCLN, KC_MINS,
+                 KC_LCBR, KC_RCBR,                                              KC_QUOT, KC_GRV,
+                                   SH_ESC,                             KC_ENT,
+                                   KC_E,    KC_LGUI,          KC_RSFT, KC_SPC,
+                                   RAISE,   KC_LCTRL,         KC_BSPC, LOWER
     ),
 
     [_RAISE] = LAYOUT(
@@ -54,13 +72,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    ____,    ____,                  ____,    ____
     ),
 
+    /*  LOWER
+     * ,----------------------------------,                  ,----------------------------------,
+     * |   !  |   @  |   #  |   $  |   %  |                  |   ^  |   &  |   *  |   (  |   )  |
+     * |------+------+------+------+------|                  |------+------+------+------+------|
+     * |   (  |   )  |   {  |   }  |   =  |                  |   _  |   -  |   +  |   \  |   |  |
+     * |------+------+------+------+------|                  |------+------+------+------+------|
+     * | NEXT | PLAY | VOLU | VOLD |      |                  |      | LEFT | DOWN |  UP  | RIGHT|
+     * |------+------+------+-------------|                  |------+------+------+------+------,
+     *        |      |      |                                              |QWERTY|RSTHD |
+     *        '-------------+------,                                ,------|-------------'
+     *                      | ESC  |                                | BSPC |
+     *                      |-------------,                  ,------+------|
+     *                      | GUI  |  TAB |                  | SHIFT| SPACE|
+     *                      |------+------|                  |------+------|
+     *                      | RAISE| CTRL |                  | LOWER| ENTER|
+     *                      '-------------'                  '-------------'
+     */
     [_LOWER] = LAYOUT(
      KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,
      S(KC_9), S(KC_0), KC_LBRC, KC_RBRC,  KC_EQL,              UNDSC, KC_MINS,  KC_EQL, KC_BSLS, KC_PIPE,
      KC_MNXT, KC_MPLY, KC_VOLU, KC_VOLD,    ____,               ____, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,
-                 ____,    ____,                                              QWERTY, COLEMAK,
-                                   ____,    ____,  ____,     ____, ____,    ____,
-                                   ____,    ____,                  ____,    ____
+                 ____,    ____,                                                 QWERTY,   RSTHD,
+                                   ____,                               ____,
+                                   ____,    ____,             ____,    ____,
+                                   ____,    ____,             ____,    ____
     )
 };
 
@@ -77,9 +113,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
             break;
-        case COLEMAK:
+        case RSTHD:
             if (record->event.pressed) {
-                set_single_persistent_default_layer(_COLEMAK);
+                set_single_persistent_default_layer(_RSTHD);
             }
             return false;
             break;
