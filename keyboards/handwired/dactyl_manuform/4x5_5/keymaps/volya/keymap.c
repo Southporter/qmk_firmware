@@ -47,13 +47,13 @@ enum layer_keycodes {
 #define ALT_O   MT(MOD_LALT,  KC_O)
 
 // Layer Toggles
-#define E_NAV     LT(_NAV, KC_E)
-#define MINS_NAV  LT(_NAV, KC_MINS)
+#define E_NUM     LT(_NUM, KC_E)
+#define MINS_NUM  LT(_NUM, KC_MINS)
 
-#define BSPC_NUM  LT(_NUM, KC_BSPC)
+#define BSPC_MS   LT(_MOUSE, KC_BSPC)
 #define ESC_MEDIA LT(_MEDIA, KC_ESC)
 
-#define TAB_MOUSE LT(_MOUSE, KC_TAB)
+#define TAB_NAV   LT(_NAV, KC_TAB)
 #define SPC_SYM   LT(_SYM, KC_SPC)
 #define ENT_FUN   LT(_FUN, KC_ENT)
 
@@ -93,8 +93,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ALT_A,   GUI_S,   SHFT_D,  CTRL_F,  KC_G,             KC_H,    CTRL_J,  SHFT_K,  GUI_L,   ALT_CLN,
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
                  KC_LCBR, KC_RCBR,                                              KC_QUOT, KC_GRV,
-                                 MINS_NAV,                              ENT_FUN,
-                                 BSPC_NUM, ESC_MEDIA,       TAB_MOUSE, SPC_SYM,
+                                ESC_MEDIA,                             ENT_FUN,
+                                 MINS_NUM,  TAB_NAV,          BSPC_MS, SPC_SYM,
                                  xxxx,      xxxx,             xxxx,    xxxx
     ),
 
@@ -120,8 +120,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ALT_A,  GUI_S,   SHFT_D,  CTRL_F,  KC_G,             KC_H,    CTRL_J,  SHFT_K,  GUI_L,   ALT_CLN,
         KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
                 KC_LCBR, KC_RCBR,                                              KC_QUOT, KC_GRV,
-                                 MINS_NAV,                              ENT_FUN,
-                                 BSPC_NUM, ESC_MEDIA,       TAB_MOUSE, SPC_SYM,
+                                ESC_MEDIA,                             ENT_FUN,
+                                 MINS_NUM,  TAB_NAV,          BSPC_MS, SPC_SYM,
                                  xxxx,      xxxx,             xxxx,    xxxx
     ),
 
@@ -148,8 +148,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ALT_R,   GUI_S,   SHFT_T,  CTRL_H,  KC_D,             KC_M,    CTRL_N,  SHFT_A,  GUI_I,   ALT_O,
         KC_SLSH, KC_V,    KC_G,    KC_P,    KC_B,             KC_X,    KC_W,    KC_DOT,  KC_SCLN, KC_MINS,
                  KC_LCBR, KC_RCBR,                                              KC_QUOT, KC_GRV,
-                                   E_NAV,                                ENT_FUN,
-                                 BSPC_NUM, ESC_MEDIA,       TAB_MOUSE, SPC_SYM,
+                                ESC_MEDIA,                             ENT_FUN,
+                                 E_NUM,   TAB_NAV,            BSPC_MS, SPC_SYM,
                                  xxxx,      xxxx,             xxxx,    xxxx
     ),
 
@@ -237,11 +237,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /*  MOUSE
      * ,----------------------------------,                  ,----------------------------------,
-     * |SPEED2|ScrlUp|   ^  |ScrlDn|      |                  |      |      |      |      |      |
+     * |SPEED2|ScrlUp|   ^  |ScrlDn|      |                  | BOOT |      |      |      |      |
      * |------+------+------+------+------|                  |------+------+------+------+------|
      * |SPEED1|   <  |   v  |   >  |      |                  |      | CTRL | SHIFT|  GUI |  ALT |
      * |------+------+------+------+------|                  |------+------+------+------+------|
-     * |SPEED0|ScrlLf|      |ScrlRt|      |                  |      |      |      |      |      |
+     * |SPEED0|ScrlLf|      |ScrlRt|      |                  | RBT  |      |      |      |      |
      * |------+------+------+-------------|                  |------+------+------+------+------,
      *        |      |      |                                              |      |      |
      *        '-------------+------,                                ,------|-------------'
@@ -253,9 +253,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                      '-------------'                  '-------------'
      */
     [_MOUSE] = LAYOUT(
-        KC_ACL2, KC_WH_U, KC_MS_U, KC_WH_D,  xxxx,            xxxx,  xxxx,     xxxx,     xxxx,    xxxx,
+        KC_ACL2, KC_WH_U, KC_MS_U, KC_WH_D,  xxxx,         QK_BOOT,  xxxx,     xxxx,     xxxx,    xxxx,
         KC_ACL1, KC_MS_L, KC_MS_D, KC_LCTRL, xxxx,            xxxx,  KC_RCTRL, KC_RSFT, KC_RGUI, KC_RALT,
-        KC_ACL0, KC_WH_L, xxxx,    KC_WH_R,  xxxx,            xxxx,  xxxx,     xxxx,     xxxx,    xxxx,
+        KC_ACL0, KC_WH_L, xxxx,    KC_WH_R,  xxxx,          QK_RBT,  xxxx,     xxxx,     xxxx,    xxxx,
                  xxxx,    xxxx,                                                xxxx,     xxxx,
                                    KC_BTN1,                               ____,
                                    KC_BTN2,  KC_BTN3,         ____,   ____,
@@ -291,11 +291,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* FUN 
      * ,----------------------------------,                  ,----------------------------------,
-     * | FN11 |  FN7 |  FN8 |  FN9 | FN14 |                  |      | FN16 | FN17 | FN18 | FN19 |
+     * | FN11 |  FN7 |  FN8 |  FN9 | FN14 |                  | BOOT | FN16 | FN17 | FN18 | FN19 |
      * |------+------+------+------+------|                  |------+------+------+------+------|
      * | FN10 |  FN4 |  FN5 |  FN6 | FN13 |                  | FN24 | CTRL | SHIFT|  GUI |  ALT |
      * |------+------+------+------+------|                  |------+------+------+------+------|
-     * | FN12 |  FN1 |  FN2 |  FN3 | FN15 |                  |      | FN20 | FN21 | FN22 | FN23 |
+     * | FN12 |  FN1 |  FN2 |  FN3 | FN15 |                  | RBT  | FN20 | FN21 | FN22 | FN23 |
      * |------+------+------+-------------|                  |------+------+------+------+------,
      *        |      |      |                                              |      |      |
      *        '-------------+------,                                ,------|-------------'
@@ -307,9 +307,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                      '-------------'                  '-------------'
      */
     [_FUN] = LAYOUT(
-        KC_F11, KC_F7,  KC_F8,  KC_F9,  KC_F14,               xxxx,   KC_F16,   KC_F17,   KC_F18,  KC_F19,
+        KC_F11, KC_F7,  KC_F8,  KC_F9,  KC_F14,              QK_BOOT, KC_F16,   KC_F17,   KC_F18,  KC_F19,
         KC_F10, KC_F4,  KC_F5,  KC_F6,  KC_F13,               KC_F24, KC_RCTRL, KC_RSFT, KC_RGUI, KC_RALT,
-        KC_F12, KC_F1,  KC_F2,  KC_F3,  KC_F15,               xxxx,   KC_F20,   KC_F21,   KC_F22,  KC_F23,
+        KC_F12, KC_F1,  KC_F2,  KC_F3,  KC_F15,               QK_RBT, KC_F20,   KC_F21,   KC_F22,  KC_F23,
                 xxxx,   xxxx,                                                xxxx,     xxxx,
                                    ____,                             ____,
                                    ____,  ____,              ____,   ____,
@@ -320,8 +320,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // If console is enabled, it will print the matrix position and status of each key pressed
 #ifdef CONSOLE_ENABLE
-    uprintf("KL: kc: 0x%04X, col: %u, row: %u, pressed: %d, time: %u, interrupt: %d, count: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed, record->event.time, record->tap.interrupted, record->tap.count);
-#endif 
+    uprintf("0x%04X\t%u\t%u\t0x%X\t%b\t0x%02X\t0x%02X\t%u\n",
+         keycode,
+         record->event.key.row,
+         record->event.key.col,
+         layer_state|default_layer_state,
+         record->event.pressed,
+         get_mods(),
+         get_oneshot_mods(),
+         record->tap.count
+         );
+#endif
     switch (keycode) {
         case QWERTY:
             if (record->event.pressed) {
