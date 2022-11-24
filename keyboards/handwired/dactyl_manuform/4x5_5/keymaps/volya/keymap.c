@@ -51,9 +51,9 @@ enum layer_keycodes {
 #define MINS_NUM  LT(_NUM, KC_MINS)
 
 #define BSPC_MS   LT(_MOUSE, KC_BSPC)
-#define ESC_MEDIA LT(_MEDIA, KC_ESC)
+#define ESC_NAV   LT(_NAV, KC_ESC)
 
-#define TAB_NAV   LT(_NAV, KC_TAB)
+#define TAB_MEDIA LT(_MEDIA, KC_TAB)
 #define SPC_SYM   LT(_SYM, KC_SPC)
 #define ENT_FUN   LT(_FUN, KC_ENT)
 
@@ -93,8 +93,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ALT_A,   GUI_S,   SHFT_D,  CTRL_F,  KC_G,             KC_H,    CTRL_J,  SHFT_K,  GUI_L,   ALT_CLN,
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
                  KC_LCBR, KC_RCBR,                                              KC_QUOT, KC_GRV,
-                                ESC_MEDIA,                             ENT_FUN,
-                                 MINS_NUM,  TAB_NAV,          BSPC_MS, SPC_SYM,
+                                TAB_MEDIA,                             ENT_FUN,
+                                 MINS_NUM,  ESC_NAV,          BSPC_MS, SPC_SYM,
                                  xxxx,      xxxx,             xxxx,    xxxx
     ),
 
@@ -120,8 +120,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ALT_A,  GUI_S,   SHFT_D,  CTRL_F,  KC_G,             KC_H,    CTRL_J,  SHFT_K,  GUI_L,   ALT_CLN,
         KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
                 KC_LCBR, KC_RCBR,                                              KC_QUOT, KC_GRV,
-                                ESC_MEDIA,                             ENT_FUN,
-                                 MINS_NUM,  TAB_NAV,          BSPC_MS, SPC_SYM,
+                                TAB_MEDIA,                             ENT_FUN,
+                                 MINS_NUM,  ESC_NAV,          BSPC_MS, SPC_SYM,
                                  xxxx,      xxxx,             xxxx,    xxxx
     ),
 
@@ -148,9 +148,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ALT_R,   GUI_S,   SHFT_T,  CTRL_H,  KC_D,             KC_M,    CTRL_N,  SHFT_A,  GUI_I,   ALT_O,
         KC_SLSH, KC_V,    KC_G,    KC_P,    KC_B,             KC_X,    KC_W,    KC_DOT,  KC_SCLN, KC_MINS,
                  KC_LCBR, KC_RCBR,                                              KC_QUOT, KC_GRV,
-                                ESC_MEDIA,                             ENT_FUN,
-                                 E_NUM,   TAB_NAV,            BSPC_MS, SPC_SYM,
-                                 xxxx,      xxxx,             xxxx,    xxxx
+                                TAB_MEDIA,                             ENT_FUN,
+                                   E_NUM,   ESC_NAV,          BSPC_MS, SPC_SYM,
+                                   xxxx,    xxxx,             xxxx,    xxxx
     ),
 
     /*  NAV
