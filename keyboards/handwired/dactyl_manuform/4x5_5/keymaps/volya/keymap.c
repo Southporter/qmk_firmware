@@ -172,7 +172,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_NAV] = LAYOUT(
         xxxx,    xxxx,    xxxx,    xxxx,    xxxx,             REDO, KC_PASTE,KC_COPY, KC_CUT,  KC_UNDO,
-      KC_LALT, KC_LGUI, KC_LSFT,  KC_LCTRL, xxxx,             KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_SCLN,
+      KC_LALT, KC_LGUI, KC_LSFT,  KC_LCTL,  xxxx,             KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_SCLN,
         xxxx,    xxxx,    xxxx,    xxxx,    xxxx,             KC_INS,  KC_HOME, KC_PGUP, KC_PGDN, KC_END,
              MAC_LOCK,    ____,                                                 QWERTY,  RSTHD,
                                    ____,                               ____,
@@ -199,7 +199,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_NUM] = LAYOUT(
         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
-       KC_LALT, KC_LGUI, KC_LSFT, KC_LCTRL, xxxx,             KC_EQL,  KC_4,    KC_5,    KC_6,    KC_SCLN,
+       KC_LALT, KC_LGUI, KC_LSFT, KC_LCTL, xxxx,             KC_EQL,  KC_4,    KC_5,    KC_6,    KC_SCLN,
         xxxx,    xxxx,    xxxx,    xxxx,    xxxx,             KC_PIPE, KC_1,    KC_2,    KC_3,    KC_DOT,
              MAC_LOCK,    ____,                                                 KC_0,  KC_DOT,
                                    ____,                               KC_RBRC,
@@ -226,7 +226,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_MEDIA] = LAYOUT(
         xxxx,    xxxx,    xxxx,    xxxx,    xxxx,             xxxx,    xxxx,    KC_MUTE, xxxx,    xxxx,
-        KC_LALT, KC_LGUI, KC_LSFT, KC_LCTRL,xxxx,             xxxx,    KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
+        KC_LALT, KC_LGUI, KC_LSFT, KC_LCTL,xxxx,             xxxx,    KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
         xxxx,    xxxx,    xxxx,    xxxx,    xxxx,             xxxx,    xxxx,    xxxx,    xxxx,    xxxx,
                  ____,    ____,                                                 QWERTY,  RSTHD,
                                    ____,                               KC_MSTP,
@@ -254,7 +254,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_MOUSE] = LAYOUT(
         KC_ACL2, KC_WH_U, KC_MS_U, KC_WH_D,  xxxx,         QK_BOOT,  xxxx,     xxxx,     xxxx,    xxxx,
-        KC_ACL1, KC_MS_L, KC_MS_D, KC_LCTRL, xxxx,            xxxx,  KC_RCTRL, KC_RSFT, KC_RGUI, KC_RALT,
+        KC_ACL1, KC_MS_L, KC_MS_D, KC_LCTL, xxxx,            xxxx,  KC_RCTL,  KC_RSFT, KC_RGUI, KC_RALT,
         KC_ACL0, KC_WH_L, xxxx,    KC_WH_R,  xxxx,          QK_RBT,  xxxx,     xxxx,     xxxx,    xxxx,
                  xxxx,    xxxx,                                                xxxx,     xxxx,
                                    KC_BTN1,                               ____,
@@ -281,7 +281,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_SYM] = LAYOUT(
         S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5),          S(KC_6), S(KC_7), S(KC_8), S(KC_9), S(KC_0),
-        KC_BSLS,S(KC_MINS),S(KC_9),S(KC_0), xxxx,             xxxx,  KC_RCTRL, KC_RSFT, KC_RGUI, KC_RALT,
+        KC_BSLS,S(KC_MINS),S(KC_9),S(KC_0), xxxx,             xxxx,  KC_RCTL,  KC_RSFT, KC_RGUI, KC_RALT,
         xxxx,    xxxx,    KC_LBRC, KC_RBRC, xxxx,             xxxx,  xxxx,     xxxx,     xxxx,    xxxx,
                  xxxx,    xxxx,                                                xxxx,     xxxx,
                                    S(KC_LBRC),                        ____,
@@ -308,7 +308,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_FUN] = LAYOUT(
         KC_F11, KC_F7,  KC_F8,  KC_F9,  KC_F14,              QK_BOOT, KC_F16,   KC_F17,   KC_F18,  KC_F19,
-        KC_F10, KC_F4,  KC_F5,  KC_F6,  KC_F13,               KC_F24, KC_RCTRL, KC_RSFT, KC_RGUI, KC_RALT,
+        KC_F10, KC_F4,  KC_F5,  KC_F6,  KC_F13,               KC_F24, KC_RCTL, KC_RSFT, KC_RGUI, KC_RALT,
         KC_F12, KC_F1,  KC_F2,  KC_F3,  KC_F15,               QK_RBT, KC_F20,   KC_F21,   KC_F22,  KC_F23,
                 xxxx,   xxxx,                                                xxxx,     xxxx,
                                    ____,                             ____,
