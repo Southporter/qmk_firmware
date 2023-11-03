@@ -320,16 +320,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // If console is enabled, it will print the matrix position and status of each key pressed
 #ifdef CONSOLE_ENABLE
-    uprintf("0x%04X\t%u\t%u\t0x%X\t%b\t0x%02X\t0x%02X\t%u\n",
-         keycode,
-         record->event.key.row,
-         record->event.key.col,
-         layer_state|default_layer_state,
-         record->event.pressed,
-         get_mods(),
-         get_oneshot_mods(),
-         record->tap.count
-         );
+    /* uprintf("0x%04X\t%u\t%u\t0x%X\t%b\t0x%02X\t0x%02X\t%u\n", */
+    /*      keycode, */
+    /*      record->event.key.row, */
+    /*      record->event.key.col, */
+    /*      layer_state|default_layer_state, */
+    /*      record->event.pressed, */
+    /*      get_mods(), */
+    /*      get_oneshot_mods(), */
+    /*      record->tap.count */
+    /*      ); */
 #endif
     switch (keycode) {
         case QWERTY:
