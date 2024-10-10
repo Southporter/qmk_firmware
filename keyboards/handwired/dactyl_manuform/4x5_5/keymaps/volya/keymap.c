@@ -35,16 +35,23 @@ enum layer_keycodes {
 #define GUI_L   MT(MOD_RGUI,  KC_L)
 #define ALT_CLN MT(MOD_LALT,  KC_SCLN)
 
+// COLEMAKDH
+#define GUI_R   MT(MOD_LGUI,  KC_R)
+#define SHFT_S  MT(MOD_LSFT,  KC_S)
+#define CTRL_T  MT(MOD_LCTL, KC_T)
+
+#define CTRL_N  MT(MOD_RCTL, KC_N)
+#define SHFT_E  MT(MOD_RSFT,  KC_E)
+#define GUI_I   MT(MOD_RGUI,  KC_I)
+#define ALT_O   MT(MOD_LALT,  KC_O)
+
 // RSTHD
 #define ALT_R   MT(MOD_LALT,  KC_R)
 #define GUI_S   MT(MOD_LGUI,  KC_S)
 #define SHFT_T  MT(MOD_LSFT,  KC_T)
 #define CTRL_H  MT(MOD_LCTL, KC_H)
 
-#define CTRL_N  MT(MOD_RCTL, KC_N)
 #define SHFT_A  MT(MOD_RSFT,  KC_A)
-#define GUI_I   MT(MOD_RGUI,  KC_I)
-#define ALT_O   MT(MOD_LALT,  KC_O)
 
 // Layer Toggles
 #define E_NUM     LT(_NUM, KC_E)
@@ -100,11 +107,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* COLEMAKDH
      * ,----------------------------------,                  ,----------------------------------,
-     * |   q  |   w  |   e  |   r  |   t  |                  |   y  |   u  |   i  |   o  |   p  |
+     * |   q  |   w  |   f  |   p  |   b  |                  |   j  |   l  |   u  |   y  |   ;  |
      * |------+------+------+------+------|                  |------+------+------+------+------|
-     * |   a  |   s  |   d  |   f  |   g  |                  |   h  |   j  |   k  |   l  |   ;  |
+     * |   a  |   r  |   s  |   t  |   g  |                  |   m  |   n  |   e  |   i  |   o  |
      * |------+------+------+------+------|                  |------+------+------+------+------|
-     * |   z  |   x  |   c  |   v  |   b  |                  |   n  |   m  |   ,  |   .  |   /  |
+     * |   z  |   x  |   c  |   d  |   v  |                  |   k  |   h  |   ,  |   .  |   /  |
      * '------+------+------+-------------'                  '------+------+------+------+------'
      *        |  {   |   }  |                                              |   '  |  `~  |
      *        '-------------+------,                                ,------|-------------'
@@ -116,9 +123,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                      '-------------'                  '-------------'
      */
     [_COLEMAKDH] = LAYOUT(
-        KC_Q,   KC_W,    KC_F,    KC_P,    KC_B,             KC_J,    KC_L,    KC_U,    KC_Y,    KC_MINS,
-        ALT_A,  GUI_S,   SHFT_D,  CTRL_F,  KC_G,             KC_H,    CTRL_J,  SHFT_K,  GUI_L,   ALT_CLN,
-        KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
+        KC_Q,   KC_W,    KC_F,    KC_P,    KC_B,             KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
+        ALT_A,  GUI_R,   SHFT_S,  CTRL_T,  KC_G,             KC_M,    CTRL_N,  SHFT_E,  GUI_I,   ALT_O,
+        KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,             KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
                 KC_LCBR, KC_RCBR,                                              KC_QUOT, KC_GRV,
                                 TAB_MEDIA, MINS_NUM,  ESC_NAV,              ENT_FUN,
                                                            BSPC_MS, SPC_SYM,
@@ -163,7 +170,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+-------------|                  |------+------+------+------+------,
      *        |MAC_LC|      |                                              |QWERTY| RSTHD|
      *        '-------------+------,                                ,------|-------------'
-     *                      |      |                                |      |
+     *                      |      |                                |COLEDH|
      *                      |-------------,                  ,------+------|
      *                      |      |      |                  |      |      |
      *                      |------+------|                  |------+------|
@@ -175,7 +182,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LALT, KC_LGUI, KC_LSFT,  KC_LCTL,  xxxx,             KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_SCLN,
         xxxx,    xxxx,    xxxx,    xxxx,    xxxx,             KC_INS,  KC_HOME, KC_PGUP, KC_PGDN, KC_END,
              MAC_LOCK,    ____,                                                 QWERTY,  RSTHD,
-                                   ____,                               ____,
+                                   ____,                               COLEMAKDH,
                                    ____,    ____,             ____,    ____,
                                    ____,    ____,             ____,    ____
     ),
@@ -254,7 +261,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_MOUSE] = LAYOUT(
         KC_ACL2, KC_WH_U, KC_MS_U, KC_WH_D,  xxxx,         QK_BOOT,  xxxx,     xxxx,     xxxx,    xxxx,
-        KC_ACL1, KC_MS_L, KC_MS_D, KC_LCTL, xxxx,            xxxx,  KC_RCTL,  KC_RSFT, KC_RGUI, KC_RALT,
+        KC_ACL1, KC_MS_L, KC_MS_D, KC_MS_R,  xxxx,            xxxx, KC_RCTL, KC_RSFT, KC_RGUI, KC_RALT,
         KC_ACL0, KC_WH_L, xxxx,    KC_WH_R,  xxxx,          QK_RBT,  xxxx,     xxxx,     xxxx,    xxxx,
                  xxxx,    xxxx,                                                xxxx,     xxxx,
                                    KC_BTN1, KC_BTN2,  KC_BTN3,           ____,
@@ -335,6 +342,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case QWERTY:
             if (record->event.pressed) {
                 set_single_persistent_default_layer(_QWERTY);
+            }
+            return false;
+            break;
+        case COLEMAKDH:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_COLEMAKDH);
             }
             return false;
             break;
